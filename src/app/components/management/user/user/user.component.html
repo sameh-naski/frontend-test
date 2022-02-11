@@ -1,0 +1,32 @@
+<div class="container">
+    <h3 class="text-center">Liste des utilisateurs <span class="badge badge-primary">{{users?.length}}</span></h3>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+
+                <th>Username</th>
+                <th>Email</th>
+                <th>departement</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td> {{user.username}} </td>
+                <td> {{user.email}} </td>
+                <td>{{user.departement.nom}}</td>
+
+                <td>
+                    <div *ngFor="let role of user.roles">
+                        <span>{{role.name}}</span>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(user.id,user)">Delete</button>
+                    <button class="btn btn-info" (click)="update(user.id,user)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

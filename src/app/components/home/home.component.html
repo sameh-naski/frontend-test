@@ -1,0 +1,32 @@
+<div class="sidenav" *ngIf="isLogged() ">
+  <a
+          *ngIf="isLogged() "
+          [routerLink]="['/register']"
+          class="nav-link"
+          >ajout employee</a
+        >
+        <a
+        *ngIf="isLogged() && isAdmin() "
+        [routerLink]="['/users']"
+        class="nav-link"
+        >Gestion des utilisateurs</a
+      >
+
+    <a *ngIf="!isLogged()" [routerLink]="['/register']" class="nav-link"
+      >Register</a
+    >
+    <a *ngIf="!isLogged()" [routerLink]="['/login']" class="nav-link"
+      >Login</a
+    >
+
+    <a *ngIf="isLogged()" class="nav-link" >{{
+      getUser()
+    }}</a>
+
+    <a *ngIf="isLogged()" class="nav-link" (click)="logout()">Logout</a>
+</div>
+
+<!-- Page content -->
+<div class="main">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,9 @@
+ul li a {
+  cursor: pointer;
+}
+
+ul li a:hover {
+  cursor: pointer;
+  background-color: #999;
+  border-radius: 3px;
+}
